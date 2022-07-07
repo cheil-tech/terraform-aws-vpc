@@ -1,0 +1,19 @@
+---
+context:
+  env_name: "Example"
+  region: "ap-northeast-2"
+  region_name: "apne2"
+  resource_name: "vpc"
+  project_name: "TF-MODULE"
+
+vpc:
+  create: true
+  # id: "vpc-064606b7ab4fe44ba"
+  id: null
+  info: 
+    cidr: "10.240.0.0/16"
+    # dns_hostnames: true
+    # dns_support: true
+  igw:
+    create: true
+    # id: "igw-0773f19743ac4b2c6"

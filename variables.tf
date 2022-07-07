@@ -3,6 +3,18 @@ variable "region_name" {type=string}
 variable "project_name" {type=string}
 variable "env_name" {type=string}
 
-variable "vpc_cidr" { type=string }
-variable "dns_hostnames" { default = true }
-variable "dns_support" { default = true }
+variable "vpc" {
+  # default = {
+  #   create = bool
+  #   id = null
+  #   info = {
+  #     cidr = string
+  #     dns_support = null
+  #     dns_hostname = null
+  #   }
+  #   igw = {
+  #     create = true
+  #     id = null
+  #   }
+  # }
+}
