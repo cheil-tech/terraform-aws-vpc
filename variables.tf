@@ -17,22 +17,25 @@ variable "env_name" {
 
 variable "vpc" {
   description = <<EOD
-{value}({type}-{default}/[{constraints}])
+
+- Mandatory if starts with *
+- [default|*]({type}-{default}:{constraint1}/{constraint2}/..)
+
 ```
   default = {
-    create = bool
-    id = null
-    info = {
-      cidr = string
-      dns_support = null
-      dns_hostname = null
+    create = *(bool)  # vpc create or not
+    id = null(string)  # vpc_id if useing existing one
+    info = { # vpc info for creation
+      cidr = *(string)  # cidr for vpc
+      dns_support = true(bool)
+      dns_hostname = true(bool)
     }
-    igw = {
-      create = true
-      id = null
+    igw = {  # internet gateway information
+      create = *(bool)  # create igw or not
+      id = null(string)  # internet gateway id if willing to use existing one
     }
   }
 ```
-EOD
 
+EOD
 }
