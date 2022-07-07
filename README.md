@@ -19,6 +19,8 @@ The following resources are used by this module:
 
 - [aws_internet_gateway.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway) (resource)
 - [aws_vpc.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc) (resource)
+- [aws_internet_gateway.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/internet_gateway) (data source)
+- [aws_vpc.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/vpc) (data source)
 
 ## Required Inputs
 
@@ -26,53 +28,49 @@ The following input variables are required:
 
 ### <a name="input_env_name"></a> [env_name](#input_env_name)
 
-Description: n/a
+Description: Name of environment (QA/STG/PRD/...)
 
 Type: `string`
 
 ### <a name="input_project_name"></a> [project_name](#input_project_name)
 
-Description: n/a
+Description: Name of project
 
 Type: `string`
 
 ### <a name="input_region_name"></a> [region_name](#input_region_name)
 
-Description: n/a
+Description: Name of region which will be applied resources
 
 Type: `string`
 
 ### <a name="input_resource_name"></a> [resource_name](#input_resource_name)
 
-Description: n/a
+Description: Name of resource
 
 Type: `string`
 
-### <a name="input_vpc_cidr"></a> [vpc_cidr](#input_vpc_cidr)
+### <a name="input_vpc"></a> [vpc](#input_vpc)
 
-Description: n/a
+Description:   default = {  
+    create = bool  
+    id = null  
+    info = {  
+      cidr = string  
+      dns_support = null  
+      dns_hostname = null
+    }  
+    igw = {  
+      create = true  
+      id = null
+    }
+  }
 
-Type: `string`
+Type: `any`
 
 ## Optional Inputs
 
-The following input variables are optional (have default values):
-
-### <a name="input_dns_hostnames"></a> [dns_hostnames](#input_dns_hostnames)
-
-Description: n/a
-
-Type: `bool`
-
-Default: `true`
-
-### <a name="input_dns_support"></a> [dns_support](#input_dns_support)
-
-Description: n/a
-
-Type: `bool`
-
-Default: `true`
+No optional inputs.
 
 ## Outputs
 
