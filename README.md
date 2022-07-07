@@ -52,19 +52,21 @@ Type: `string`
 
 ### <a name="input_vpc"></a> [vpc](#input_vpc)
 
-Description:   default = {  
-    create = bool  
-    id = null  
-    info = {  
-      cidr = string  
-      dns_support = null  
+Description: ```
+  default = {
+    create = bool
+    id = null
+    info = {
+      cidr = string
+      dns_support = null
       dns_hostname = null
-    }  
-    igw = {  
-      create = true  
+    }
+    igw = {
+      create = true
       id = null
     }
   }
+```
 
 Type: `any`
 
