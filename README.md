@@ -52,7 +52,8 @@ Type: `string`
 
 ### <a name="input_vpc"></a> [vpc](#input_vpc)
 
-Description: ```
+Description:
+```
   default = {
     create = bool
     id = null

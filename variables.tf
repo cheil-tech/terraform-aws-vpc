@@ -17,6 +17,7 @@ variable "env_name" {
 
 variable "vpc" {
   description = <<EOD
+
 ```
   default = {
     create = bool
