@@ -5,9 +5,9 @@ No requirements.
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+The following providers are used by this module:
+
+- <a name="provider_aws"></a> [aws](#provider_aws)
 
 ## Modules
 
@@ -15,30 +15,70 @@ No modules.
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [aws_internet_gateway.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway) | resource |
-| [aws_vpc.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc) | resource |
+The following resources are used by this module:
 
-## Inputs
+- [aws_internet_gateway.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway) (resource)
+- [aws_vpc.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc) (resource)
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_create_vpc"></a> [create\_vpc](#input\_create\_vpc) | n/a | `bool` | n/a | yes |
-| <a name="input_dns_hostnames"></a> [dns\_hostnames](#input\_dns\_hostnames) | n/a | `bool` | `true` | no |
-| <a name="input_dns_support"></a> [dns\_support](#input\_dns\_support) | n/a | `bool` | `true` | no |
-| <a name="input_env_name"></a> [env\_name](#input\_env\_name) | n/a | `string` | n/a | yes |
-| <a name="input_project_name"></a> [project\_name](#input\_project\_name) | n/a | `string` | n/a | yes |
-| <a name="input_region_name"></a> [region\_name](#input\_region\_name) | n/a | `string` | n/a | yes |
-| <a name="input_resource_name"></a> [resource\_name](#input\_resource\_name) | n/a | `string` | n/a | yes |
-| <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | n/a | `string` | n/a | yes |
+## Required Inputs
+
+The following input variables are required:
+
+### <a name="input_env_name"></a> [env_name](#input_env_name)
+
+Description: n/a
+
+Type: `string`
+
+### <a name="input_project_name"></a> [project_name](#input_project_name)
+
+Description: n/a
+
+Type: `string`
+
+### <a name="input_region_name"></a> [region_name](#input_region_name)
+
+Description: n/a
+
+Type: `string`
+
+### <a name="input_resource_name"></a> [resource_name](#input_resource_name)
+
+Description: n/a
+
+Type: `string`
+
+### <a name="input_vpc_cidr"></a> [vpc_cidr](#input_vpc_cidr)
+
+Description: n/a
+
+Type: `string`
+
+## Optional Inputs
+
+The following input variables are optional (have default values):
+
+### <a name="input_dns_hostnames"></a> [dns_hostnames](#input_dns_hostnames)
+
+Description: n/a
+
+Type: `bool`
+
+Default: `true`
+
+### <a name="input_dns_support"></a> [dns_support](#input_dns_support)
+
+Description: n/a
+
+Type: `bool`
+
+Default: `true`
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_igw_id"></a> [igw\_id](#output\_igw\_id) | n/a |
-| <a name="output_name_prefix"></a> [name\_prefix](#output\_name\_prefix) | n/a |
-| <a name="output_vpc_cidr"></a> [vpc\_cidr](#output\_vpc\_cidr) | n/a |
-| <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | n/a |
+The following outputs are exported:
+
+### <a name="output_info"></a> [info](#output_info)
+
+Description: n/a
 <!-- END_TF_DOCS -->
