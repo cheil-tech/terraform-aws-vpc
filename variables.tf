@@ -17,7 +17,7 @@ variable "env_name" {
 
 variable "vpc" {
   description = <<EOD
-<value>(<type>-<default>/[constraints])
+{value}({type}-{default}/[{constraints}])
 ```
   default = {
     create = bool
