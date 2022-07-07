@@ -52,7 +52,7 @@ Type: `string`
 
 ### <a name="input_vpc"></a> [vpc](#input_vpc)
 
-Description:
+Description: <value>(<type>-<default>/[constraints])
 ```
   default = {
     create = bool
