@@ -84,5 +84,7 @@ The following outputs are exported:
 
 ### <a name="output_info"></a> [info](#output_info)
 
-Description: n/a
+Description:   
+vpc = data.aws_vpc.this  
+igw = data.aws_internet_gateway.this
 <!-- END_TF_DOCS -->
