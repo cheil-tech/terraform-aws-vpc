@@ -52,19 +52,25 @@ Type: `string`
 
 ### <a name="input_vpc"></a> [vpc](#input_vpc)
 
-Description:   default = {  
-    create = bool  
-    id = null  
-    info = {  
-      cidr = string  
-      dns_support = null  
-      dns_hostname = null
-    }  
-    igw = {  
-      create = true  
-      id = null
+Description:
+- Mandatory if starts with *
+- {default|*}({type}-{default}:{constraint1}/{constraint2}/..)
+
+```
+  default = {
+    create = *(bool)  # vpc create or not
+    id = null(string)  # vpc_id if useing existing one
+    info = { # vpc info for creation
+      cidr = *(string)  # cidr for vpc
+      dns_support = true(bool)
+      dns_hostname = true(bool)
+    }
+    igw = {  # internet gateway information
+      create = *(bool)  # create igw or not
+      id = null(string)  # internet gateway id if willing to use existing one
     }
   }
+```
 
 Type: `any`
 
