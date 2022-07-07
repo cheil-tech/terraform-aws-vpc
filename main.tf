@@ -6,12 +6,25 @@ locals {
     ResourceName = var.resource_name
     EnvName      = var.env_name
   }
+
+  vpc_id = var.vpc.create ? aws_vpc.this[0].id : var.vpc.id
+  igw_id = var.vpc.igw.create ? aws_internet_gateway.this[0].id : var.vpc.igw.id
+}
+
+data "aws_vpc" "this" {
+  id = local.vpc_id
+
+  depends_on = [
+    aws_vpc.this
+  ]
 }
 
 resource "aws_vpc" "this" {
-  cidr_block           = var.vpc_cidr
-  enable_dns_support   = var.dns_support
-  enable_dns_hostnames = var.dns_hostnames
+  count = var.vpc.create ? 1 : 0
+
+  cidr_block           = var.vpc.info.cidr
+  enable_dns_support   = try(var.vpc.info.dns_support, true)
+  enable_dns_hostnames = try(var.vpc.info.dns_hostnames, true)
 
   tags = merge(
     {
@@ -21,8 +34,18 @@ resource "aws_vpc" "this" {
   )
 }
 
+data "aws_internet_gateway" "this" {
+  internet_gateway_id = local.igw_id
+
+  depends_on = [
+    aws_internet_gateway.this
+  ]
+}
+
 resource "aws_internet_gateway" "this" {
-  vpc_id = aws_vpc.this.id
+  count = var.vpc.igw.create ? 1 : 0
+  
+  vpc_id = local.vpc_id
 
   tags = merge(
     {
