@@ -19,7 +19,7 @@ variable "vpc" {
   description = <<EOD
 
 - Mandatory if starts with *
-- [default|*]({type}-{default}:{constraint1}/{constraint2}/..)
+- {default|*}({type}-{default}:{constraint1}/{constraint2}/..)
 
 ```
   default = {
