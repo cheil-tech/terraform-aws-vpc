@@ -5,23 +5,24 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "dtdev-terraform-state"
-    key    = "tf-modules/vpc/state"
+    key    = "tf-modules/vpc.state"
     region = "ap-northeast-2"
   }
 }
 
 locals {
-  # workspace = terraform.workspace
   config_file = "${var.config_dir}/${terraform.workspace}.yml"
-  config      = yamldecode(file(local.config_file))
+  config_org  = yamldecode(file(local.config_file))
+  context     = local.config_org.context
 
-  context = local.config.context
-  vpc     = local.config.vpc
+  vars = merge(
+    local.config_org
+  )
 
-  region = local.context.region
+  config = yamldecode(templatefile(local.config_file, local.vars))
 
-  vpc_vars = local.vpc
-
+  vpc      = local.config.vpc
+  region   = local.context.region
 }
 
 module "vpc" {
@@ -30,7 +31,7 @@ module "vpc" {
   region_name   = local.context.region_name
   project_name  = local.context.project_name
   env_name      = local.context.env_name
-  resource_name = local.context.resource_name
+  resource_name = local.config.resource_name
 
-  vpc = local.vpc_vars
+  vpc = local.config.vpc
 }

@@ -23,13 +23,7 @@ No resources.
 
 ## Required Inputs
 
-The following input variables are required:
-
-### <a name="input_confirm_workspace"></a> [confirm_workspace](#input_confirm_workspace)
-
-Description: To make sure you are workinn in current workspace, enter the workspace name
-
-Type: `any`
+No required inputs.
 
 ## Optional Inputs
 
@@ -47,7 +41,7 @@ Default: `"./config"`
 
 The following outputs are exported:
 
-### <a name="output_vpc"></a> [vpc](#output_vpc)
+### <a name="output_info"></a> [info](#output_info)
 
 Description: n/a
 <!-- END_TF_DOCS -->
