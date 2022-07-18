@@ -43,5 +43,10 @@ The following outputs are exported:
 
 ### <a name="output_info"></a> [info](#output_info)
 
-Description: n/a
+Description:   
+info = {  
+  context = <context info>  
+  vpc = <vpc info>  
+  igw = <internet gateway info>
+}
 <!-- END_TF_DOCS -->
