@@ -35,7 +35,10 @@ resource "aws_vpc" "this" {
 }
 
 data "aws_internet_gateway" "this" {
-  internet_gateway_id = local.igw_id
+  filter {
+    name   = "attachment.vpc-id"
+    values = [local.vpc_id]
+  }
 
   depends_on = [
     aws_internet_gateway.this
@@ -43,7 +46,7 @@ data "aws_internet_gateway" "this" {
 }
 
 resource "aws_internet_gateway" "this" {
-  count = var.vpc.igw.create ? 1 : 0
+  count = try(var.vpc.igw.create, false) ? 1 : 0
   
   vpc_id = local.vpc_id
 
