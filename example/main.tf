@@ -13,7 +13,8 @@ terraform {
 locals {
   config_file = "${var.config_dir}/${terraform.workspace}.yml"
   config_org  = yamldecode(file(local.config_file))
-  context     = local.config_org.context
+
+  context = local.config_org.context
 
   vars = merge(
     local.config_org
@@ -21,8 +22,8 @@ locals {
 
   config = yamldecode(templatefile(local.config_file, local.vars))
 
-  vpc      = local.config.vpc
-  region   = local.context.region
+  vpc    = local.config.vpc
+  region = local.context.region
 }
 
 module "vpc" {
