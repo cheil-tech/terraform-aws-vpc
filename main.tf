@@ -8,7 +8,7 @@ locals {
   }
 
   vpc_id = var.vpc.create ? aws_vpc.this[0].id : var.vpc.id
-  igw_id = var.vpc.igw.create ? aws_internet_gateway.this[0].id : var.vpc.igw.id
+  igw_id = try(var.vpc.igw.create, false) ? aws_internet_gateway.this[0].id : data.aws_internet_gateway.internet_gateway_id
 }
 
 data "aws_vpc" "this" {
